@@ -52,6 +52,7 @@ $ docker exec -it cn-1 bash
 # homi setup ...
 # vi /usr/share/homi-output/scripts/static-nodes.json
 "kni://...@0.0.0.0:32323 -> "kni://...@cn-1:32323
+"kni://...@0.0.0.0:32324 -> "kni://...@cn-2:32323
 ...
 ```
 
