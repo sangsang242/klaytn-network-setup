@@ -1,0 +1,70 @@
+version: "2.1"
+
+services:
+  Prometheus-Monitoring-Server:
+    image: ecpe4s/rhel8-runner-x86_64
+    container_name: monitoring
+    ports:
+      - 9090:9090
+    expose:
+      - 9090
+    command: tail -f /dev/null
+    volumes:
+      - .:/tmp
+    stop_signal: SIGKILL
+
+  Consensus-Node-1:
+    image: ecpe4s/rhel8-runner-x86_64
+    container_name: cn-1
+    expose:
+      - 32323
+      - 32324
+      - 8551
+      - 8552
+      - 61001
+    command: tail -f /dev/null
+    volumes:
+      - .:/tmp
+    stop_signal: SIGKILL
+
+  Consensus-Node-2:
+    image: ecpe4s/rhel8-runner-x86_64
+    container_name: cn-2
+    expose:
+      - 32323
+      - 32324
+      - 8551
+      - 8552
+      - 61001
+    command: tail -f /dev/null
+    volumes:
+      - .:/tmp
+    stop_signal: SIGKILL
+
+  Consensus-Node-3:
+    image: ecpe4s/rhel8-runner-x86_64
+    container_name: cn-3
+    expose:
+      - 32323
+      - 32324
+      - 8551
+      - 8552
+      - 61001
+    command: tail -f /dev/null
+    volumes:
+      - .:/tmp
+    stop_signal: SIGKILL
+
+  Consensus-Node-4:
+    image: ecpe4s/rhel8-runner-x86_64
+    container_name: cn-4
+    expose:
+      - 32323
+      - 32324
+      - 8551
+      - 8552
+      - 61001
+    command: tail -f /dev/null
+    volumes:
+      - .:/tmp
+    stop_signal: SIGKILL
