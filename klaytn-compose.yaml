@@ -4,11 +4,12 @@ services:
   Prometheus-Monitoring-Server:
     image: ecpe4s/rhel8-runner-x86_64
     container_name: monitoring
+    privileged: true
     ports:
       - 9090:9090
     expose:
       - 9090
-    command: tail -f /dev/null
+    command: /sbin/init & tail -f /dev/null
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
@@ -16,13 +17,14 @@ services:
   Consensus-Node-1:
     image: ecpe4s/rhel8-runner-x86_64
     container_name: cn-1
+    privileged: true
     expose:
       - 32323
       - 32324
       - 8551
       - 8552
       - 61001
-    command: tail -f /dev/null
+    command: /sbin/init & tail -f /dev/null
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
@@ -30,13 +32,14 @@ services:
   Consensus-Node-2:
     image: ecpe4s/rhel8-runner-x86_64
     container_name: cn-2
+    privileged: true
     expose:
       - 32323
       - 32324
       - 8551
       - 8552
       - 61001
-    command: tail -f /dev/null
+    command: /sbin/init & tail -f /dev/null
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
@@ -44,13 +47,14 @@ services:
   Consensus-Node-3:
     image: ecpe4s/rhel8-runner-x86_64
     container_name: cn-3
+    privileged: true
     expose:
       - 32323
       - 32324
       - 8551
       - 8552
       - 61001
-    command: tail -f /dev/null
+    command: /sbin/init & tail -f /dev/null
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
@@ -58,13 +62,14 @@ services:
   Consensus-Node-4:
     image: ecpe4s/rhel8-runner-x86_64
     container_name: cn-4
+    privileged: true
     expose:
       - 32323
       - 32324
       - 8551
       - 8552
       - 61001
-    command: tail -f /dev/null
+    command: /sbin/init & tail -f /dev/null
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
@@ -72,13 +77,14 @@ services:
   Proxy-Node-1:
     image: ecpe4s/rhel8-runner-x86_64
     container_name: pn-1
+    privileged: true
     expose:
       - 32323
       - 32324
       - 8551
       - 8552
       - 61001
-    command: tail -f /dev/null
+    command: /sbin/init & tail -f /dev/null
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
@@ -86,6 +92,7 @@ services:
   Endpoint-Node-1:
     image: ecpe4s/rhel8-runner-x86_64
     container_name: en-1
+    privileged: true
     ports:
       - 8551:8551
       - 8552:8552
@@ -96,7 +103,7 @@ services:
       - 8551
       - 8552
       - 61001
-    command: tail -f /dev/null
+    command: /sbin/init & tail -f /dev/null
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
