@@ -62,7 +62,18 @@ $ docker exec -it cn-# bash
 
 # rpm -ivh /tmp/kcnd-v1.7.3-0.el7.x86_64.rpm
 ...
+kcn --metrics --prometheus --multichannel --networkid 1961 --datadir /klaytn --port 32323 --subport 32324 --srvtype fasthttp --verbosity 3
 ```
+
+### Endpoint Node
+```
+$ docker exec -it en-# bash
+
+# rpm -ivh /tmp/kend-v1.7.3-0.el7.x86_64.rpm
+...
+ken --metrics --prometheus --multichannel --rpc --rpcapi admin,debug,klay,miner,net,personal,rpc,txpool,web3 --rpcport 8551 --rpcaddr 0.0.0.0 --networkid 1961 --datadir /klaytn
+```
+
 
 ## Useful commands
 ### Check out klaytn data
