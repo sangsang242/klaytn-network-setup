@@ -68,3 +68,35 @@ services:
     volumes:
       - .:/tmp
     stop_signal: SIGKILL
+
+  Proxy-Node-1:
+    image: ecpe4s/rhel8-runner-x86_64
+    container_name: pn-1
+    expose:
+      - 32323
+      - 32324
+      - 8551
+      - 8552
+      - 61001
+    command: tail -f /dev/null
+    volumes:
+      - .:/tmp
+    stop_signal: SIGKILL
+
+  Endpoint-Node-1:
+    image: ecpe4s/rhel8-runner-x86_64
+    container_name: en-1
+    ports:
+      - 8551:8551
+      - 8552:8552
+      - 61001:61001
+    expose:
+      - 32323
+      - 32324
+      - 8551
+      - 8552
+      - 61001
+    command: tail -f /dev/null
+    volumes:
+      - .:/tmp
+    stop_signal: SIGKILL
